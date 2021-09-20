@@ -27,7 +27,7 @@ export function Counter() {
 }
 
 // Pilares do React:
-// Componente
-// Propriedade
-// Estado
-// Imutabilidade
+    // Componente
+    // Propriedade
+    // Estado
+    // Imutabilidade
