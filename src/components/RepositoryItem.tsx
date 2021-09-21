@@ -1,4 +1,12 @@
-export function RepositoryItem(props) { {/*Recebendo as props passadas como argumento da função/componente*/}
+type RepositoryItemProps = {
+    repository: {
+        name: string
+        description: string
+        html_url: string
+    }
+}
+
+export function RepositoryItem(props: RepositoryItemProps) { {/*Recebendo as props passadas como argumento da função/componente*/}
     return (
         <li>
             <strong>{props.repository?.name}</strong> {/*Accesando a propriedade repository que foi passado no elemento pai*/}

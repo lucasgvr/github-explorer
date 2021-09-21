@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production' //Produção ou dese
 module.exports = {
     mode: isDevelopment ? 'development' : 'production', //Modo que o WebPack vai rodar (desenvolvimento ou produção)
     devtool: isDevelopment ? 'eval-source-map' : 'source-map', //Mostrar o código fonte real no Dev Tools do navegador
-    entry: path.resolve(__dirname, 'src', 'index.jsx'), //O arquivo principal da aplicação
+    entry: path.resolve(__dirname, 'src', 'index.tsx'), //O arquivo principal da aplicação
     output: {
         path: path.resolve(__dirname, 'dist'), //O local do arquivo que o WebPack vai gerar
         filename: 'bundle.js' //O arquivo que o WebPack vai gerar
@@ -15,7 +15,9 @@ module.exports = {
     resolve: {
         extensions: [ //Extensões que o WebPack vai interpretar
             '.js',
-            '.jsx'
+            '.jsx',
+            '.ts',
+            '.tsx'
         ]
     },
     devServer: {
@@ -31,7 +33,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx$/, //Expressão regular (devolvendo true or false). Nesse caso estamos verificando se o arquivo termina em .jsx
+                test: /\.(j|t)sx$/, //Expressão regular (devolvendo true or false). Nesse caso estamos verificando se o arquivo termina em .jsx
                 exclude: /node_modules/, //Excluir node_modules da conversão do arquivo pois esse é o trabalho das próprias bibliotecas
                 use: {
                     loader: 'babel-loader', //Usar o babel-loader para interpretar arquivos .jsx
